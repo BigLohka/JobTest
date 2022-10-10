@@ -31,11 +31,10 @@ public class ObjCreator : MonoBehaviour
         CreateGameObject(coins, coinsCount, coinsParent);
         CreateGameObject(spike, spikesCount, spikeParent);
     }
-    public void CreateGameObject(GameObject GO, int counter, Transform parent)
+    private void CreateGameObject(GameObject GO, int counter, Transform parent)
     {
        for (int i = 0; i < counter; i++)
        {
-           GameObject spikeGO;
            var x = Random.Range(minX, maxX);
            var y = Random.Range(minY, maxY);
            Vector3 _offset = new Vector3(x, y, 0);
@@ -45,13 +44,8 @@ public class ObjCreator : MonoBehaviour
            }
            else
            {
-                spikeGO = Instantiate(GO, new Vector3(x, y, 0), transform.rotation);
-                spikeGO.transform.SetParent(parent);
+                Instantiate(GO, new Vector3(x, y, 0), transform.rotation, parent);
            }
        }
-    }
-    public void Update()
-    {
-
     }
 }

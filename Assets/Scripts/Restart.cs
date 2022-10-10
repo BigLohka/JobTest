@@ -10,7 +10,7 @@ public class Restart : MonoBehaviour
     [SerializeField] private Text scoreText;
     private int score;
 
-    public void Start()
+    private void Start()
     {
         gameFinishText.text = PlayerPrefs.GetInt("Result") == 0 ? "Вы проиграли!" : "Вы победили!";
         score = PlayerPrefs.GetInt("Score");
@@ -18,7 +18,7 @@ public class Restart : MonoBehaviour
     }
     public void RestartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Main Scene");
         PlayerPrefs.DeleteAll();
     }
 }
